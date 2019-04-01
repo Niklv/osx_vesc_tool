@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -e
+
+export PATH=/usr/local/opt/qt/bin:$PATH
+rm -rf build/osx/*
+
+# Original
+qmake -config release "CONFIG += release_osx build_original"
+make clean
+make -j8
+rm -rf build/osx/obj
+

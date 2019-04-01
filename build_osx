@@ -1,0 +1,67 @@
+#!/bin/bash
+
+set -e
+
+export PATH=/opt/Qt/5.9-static/bin:$PATH
+rm -rf build/osx/*
+
+# Original
+qmake -config release "CONFIG += release_osx build_original"
+make clean
+make -j8
+rm -rf build/osx/obj
+cd build/osx
+zip vesc_tool_original_osx.zip `ls | grep -v '\.zip$'`
+ls | grep -v '\.zip$' | xargs rm
+cd ../..
+
+# Platinum
+qmake -config release "CONFIG += release_osx build_platinum"
+make clean
+make -j8
+rm -rf build/osx/obj
+cd build/osx
+zip vesc_tool_platinum_osx.zip `ls | grep -v '\.zip$'`
+ls | grep -v '\.zip$' | xargs rm
+cd ../..
+
+# Gold
+qmake -config release "CONFIG += release_osx build_gold"
+make clean
+make -j8
+rm -rf build/osx/obj
+cd build/osx
+zip vesc_tool_gold_osx.zip `ls | grep -v '\.zip$'`
+ls | grep -v '\.zip$' | xargs rm
+cd ../..
+
+# Silver
+qmake -config release "CONFIG += release_osx build_silver"
+make clean
+make -j8
+rm -rf build/osx/obj
+cd build/osx
+zip vesc_tool_silver_osx.zip `ls | grep -v '\.zip$'`
+ls | grep -v '\.zip$' | xargs rm
+cd ../..
+
+# Bronze
+qmake -config release "CONFIG += release_osx build_bronze"
+make clean
+make -j8
+rm -rf build/osx/obj
+cd build/osx
+zip vesc_tool_bronze_osx.zip `ls | grep -v '\.zip$'`
+ls | grep -v '\.zip$' | xargs rm
+cd ../..
+
+# Free of charge
+qmake -config release "CONFIG += release_osx build_free"
+make clean
+make -j8
+rm -rf build/osx/obj
+cd build/osx
+zip vesc_tool_free_osx.zip `ls | grep -v '\.zip$'`
+ls | grep -v '\.zip$' | xargs rm
+cd ../..
+

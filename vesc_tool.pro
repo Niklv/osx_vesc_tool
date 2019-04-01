@@ -79,6 +79,14 @@ release_lin {
     UI_DIR = build/lin/obj
 }
 
+release_osx {
+    DESTDIR = build/osx
+    OBJECTS_DIR = build/osx/obj
+    MOC_DIR = build/osx/obj
+    RCC_DIR = build/osx/obj
+    UI_DIR = build/osx/obj
+}
+
 release_android {
     DESTDIR = build/android
     OBJECTS_DIR = build/android/obj
